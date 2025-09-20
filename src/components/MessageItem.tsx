@@ -24,11 +24,11 @@ export default function MessageItem({ message, currentUser, onDelete }: MessageI
       className={`mb-4 ${isOwnMessage ? 'text-right' : 'text-left'}`}
       onContextMenu={handleContextMenu}
     >
-      <div 
+      <div
         className={`
           inline-block max-w-[70%] rounded-lg px-4 py-2 break-words
-          ${isOwnMessage 
-            ? 'bg-blue-500 text-white' 
+          ${isOwnMessage
+            ? 'bg-blue-500 text-white'
             : 'bg-gray-100 text-gray-900'
           }
         `}
