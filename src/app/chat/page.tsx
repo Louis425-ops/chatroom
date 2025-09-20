@@ -156,9 +156,9 @@ export default function ChatRoom() {
   const selectedRoom = roomsData?.rooms.find(room => room.roomId === selectedRoomId);
 
   return (
-    <div className="h-screen flex">
+    <div className="h-screen flex overflow-hidden">
       {/* Left Sidebar - Rooms */}
-      <div className="w-1/3 bg-white border-r border-gray-200 flex flex-col">
+      <div className="w-1/3 bg-white border-r border-gray-200 flex flex-col min-w-0">
         {/* Header */}
         <div className="p-4 border-b border-gray-200">
           <div className="flex justify-between items-center mb-4">
@@ -244,7 +244,7 @@ export default function ChatRoom() {
       </div>
 
       {/* Right Content - Chat */}
-      <div className="flex-1 flex flex-col">
+      <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
         {selectedRoom ? (
           <>
             {/* Chat Header */}
@@ -253,7 +253,7 @@ export default function ChatRoom() {
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 bg-gray-50">
+            <div className="flex-1 overflow-y-auto p-4 bg-gray-50 min-w-0">
               {messagesError && (
                 <div className="text-red-600 text-center">
                   Error loading messages: {messagesError.message}

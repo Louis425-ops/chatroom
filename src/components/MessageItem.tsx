@@ -26,7 +26,7 @@ export default function MessageItem({ message, currentUser, onDelete }: MessageI
     >
       <div
         className={`
-          inline-block max-w-[70%] rounded-lg px-4 py-2 break-words
+          inline-block max-w-[70%] min-w-0 rounded-lg px-4 py-2 break-words overflow-wrap-anywhere
           ${isOwnMessage
             ? 'bg-blue-500 text-white'
             : 'bg-gray-100 text-gray-900'
@@ -34,14 +34,14 @@ export default function MessageItem({ message, currentUser, onDelete }: MessageI
         `}
       >
         {!isOwnMessage && (
-          <div className="text-xs font-medium mb-1 opacity-75">
+          <div className="text-xs font-medium mb-1 opacity-75 break-words">
             {message.sender}
             {currentUser.isRoot && (
               <span className="ml-1 text-red-300">(Root can delete)</span>
             )}
           </div>
         )}
-        <div>{message.content}</div>
+        <div className="break-words overflow-wrap-anywhere whitespace-pre-wrap">{message.content}</div>
         <div 
           className={`
             text-xs mt-1 opacity-75
