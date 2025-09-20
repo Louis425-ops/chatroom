@@ -1,15 +1,23 @@
+
+
 # Chat Room - 聊天室全栈应用
 
 这是一个基于 Next.js + TypeScript + Prisma 构建的实时聊天室应用，支持用户注册、登录、创建房间、发送消息等功能，并包含 root 用户权限管理。
+
+## 使用指南
+
+如果是第一次打开, 运行完`npm install`之后, 我推荐使用`npx prisma migrate reset`命令来清理原来数据库的数据, 然后你第一次register的用户会自动成为root用户, 权限可以看后文描述(类似网管...). 当然, 你也可以使用`npx prisma migrate dev --name init`命令, 这样你会看到之前的数据, 此时root用户账号是zby, 密码是Louis123.
+
+启动界面命令`npm run dev`
 
 ## 技术栈
 
 - **前端**: Next.js 15, React 18, TypeScript, Tailwind CSS
 - **后端**: Next.js API Routes
-- **数据库**: SQLite (可切换到 PostgreSQL)
+- **数据库**: SQLite 
 - **ORM**: Prisma
 - **认证**: JWT + HTTP Cookies
-- **数据获取**: SWR (实现实时更新)
+- **数据获取**: SWR (实时更新)
 
 ## 项目结构
 
@@ -56,6 +64,11 @@ chat-room/
 
    ```bash
    npx prisma migrate dev --name init
+   ```
+
+   或者使用
+   ```bash
+   npx prisma migrate reset
    ```
 
 3. **启动开发服务器**:
